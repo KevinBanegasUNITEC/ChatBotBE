@@ -17,7 +17,8 @@ public class GeminiChatService {
 
     public GeminiChatService() {
         // Initialize the Gemini client
-        this.client = Client.builder().apiKey("AIzaSyBw-p3KWUj5ObKOZ99Odu1n1GPvsraTz28").build();
+        String apiKey = System.getenv("CHATBOT_API_KEY");
+        this.client = Client.builder().apiKey(apiKey).build();
         // Create a new chat session with Gemini
         String configPrompt = """
                 Eres un asistente diseñado para ayudar a los usuarios con cualquier solicitud.\s

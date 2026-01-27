@@ -34,7 +34,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
-
+		<!-- Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>4.0.1</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
@@ -48,6 +54,13 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Source: https://mvnrepository.com/artifact/org.springframework.session/spring-session-core -->
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-core</artifactId>
+			<version>3.1.2</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

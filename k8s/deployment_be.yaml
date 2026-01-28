@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chatbot-backend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: chatbot-backend
+    spec:
+      containers:
+      - name: chatbot-backend
+        image: spring/chatbot-be:v1
+        env:
+        - name: CHATBOT_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: chatbot-api-key
+              key: CHATBOT_API_KEY
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Never
+
+# Setup API Key Secret
+# kubectl create secret generic chatbot-api-key --from-literal=CHATBOT_API_KEY='your_api_key_here'
